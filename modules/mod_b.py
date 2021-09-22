@@ -1,4 +1,4 @@
-import mod_c
+from modules.mod_c import *
 
 
-mod_c.x = 5
+x = 5

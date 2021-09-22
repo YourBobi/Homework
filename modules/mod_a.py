@@ -1,5 +1,9 @@
-import mod_c
-import mod_b
+from modules.mod_b import *
+from modules.mod_c import *
 
 
-print(mod_c.x)
+
+print(x)
+#
+# Когда мы импортировали в виде from modules.mod_b import * то у нас по факту вставляются все методы и переменные в код,
+# в их начальном виде. Поэтому все методы выполняются в порядке импортов. Всё добавляется в глобальное пространство
