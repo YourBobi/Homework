@@ -1,6 +1,6 @@
 import logging
 import argparse
-from my_parser import MyParser
+from my_parser import MyParser, RssKeywords
 from create_file import CreateFile
 
 URL = "https://vse.sale/news/rss/"
@@ -47,8 +47,15 @@ def parsing_rss(arg):
     """
     output = ""
     try:
+        keys = RssKeywords()
+        keys.title = "title"
+        keys.date = "pubdate"
+        keys.image_link = "enclosure"
+        keys.description = "description"
+        # keys.format_of_date = "%Y-%m-%dT%H:%M:%SZ"
+        keys.format_of_date = "%a, %d %b %Y %H:%M:%S %z"
         rss = MyParser(arg.source, limit=arg.limit, json_format=arg.json,
-                       date=arg.date, colorize=arg.colorize)
+                       date=arg.date, colorize=arg.colorize, keys=keys)
         output = rss
     except Exception as e:
         print(e)

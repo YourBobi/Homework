@@ -10,6 +10,16 @@ import os
 os.system("")
 
 
+class RssKeywords:
+
+    title: str = ""
+    date: str = ""
+    news_link: str = ""
+    image_link: str = ""
+    description: str = ""
+    format_of_date: str = ""
+
+
 class MyParser:
     """ Class that parsing site and write result in json.json file
             in format, which the user specified.
@@ -39,7 +49,8 @@ class MyParser:
                  limit: int = None,
                  json_format: bool = False,
                  date: str = None,
-                 colorize: bool = False):
+                 colorize: bool = False,
+                 keys: RssKeywords = None):
         self.logger.info("Start of creating attribute")
         self.colorize_format = colorize
         self.json_format = json_format
@@ -50,21 +61,24 @@ class MyParser:
             raise self.logger.error("incorrect date")
 
         self.logger.info("Create json file and dict with information!")
-        self.items_dict = self.parsing_rss(url, header)
+        self.items_dict = self.parsing_rss(url, header, keys)
         self.limit = len(self.items_dict["items"]) \
             if limit is None or limit < 0 else limit
         self.write_json()
         self.logger.info("End of creating attribute")
 
-    def parsing_rss(self, url, header=None):
+    def parsing_rss(self, url, header=None, keys=None):
         """Parses the rss page according to the given url
 
+        :param keys:
         :param url: url of rss file
         :return: dict with information
         """
         if not url and not self.date:
             raise self.logger.error("error: the following arguments"
                                     " are required: source")
+        elif not isinstance(keys, RssKeywords):
+            raise self.logger.error("Type error. Keys are not RssKeywords")
 
         soup = BeautifulSoup(requests.get(url, headers=header).text, 'lxml') \
             if url else False
@@ -72,16 +86,17 @@ class MyParser:
         return {
             "feed": soup.find('title').get_text(strip=True),
             "items":
-                [{"title": el.find("title").get_text(strip=True)
-                  if el.find("title") else "",
-                  "date": self._w_date(el.find("pubdate").get_text(strip=True))
-                  if el.find("pubdate") else "",
-                  "description": el.find("description").get_text(strip=True)
-                  if el.find("description") else "",
+                [{"title": el.find(keys.title).get_text(strip=True)
+                  if el.find(keys.title) else "",
+                  "date": self._w_date(el.find(keys.date).get_text(strip=True),
+                                       keys.format_of_date)
+                  if el.find(keys.date) else "",
+                  "description": el.find(keys.description).get_text(strip=True)
+                  if el.find(keys.description) else "",
                   "news link": el.link.next_sibling.get_text(strip=True)
                   if el.link else "",
-                  "image link": el.find("enclosure").get("url")
-                  if el.find("enclosure") else ""
+                  "image link": el.find(keys.image_link).get("url")
+                  if el.find(keys.image_link) else ""
                   } for el in items]
         } if items else self.read_json()
 
@@ -112,22 +127,17 @@ class MyParser:
             self.logger.info("End writing in file: {}".format(self.json_link))
 
     @staticmethod
-    def _w_date(date):
+    def _w_date(date, form):
         """Converts date to human readable format
 
         :param date: date from rss
+        :param form: format of date
         :return: str date
         """
-        day = {"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04",
-               "May": "05", "Jun": "06", "Jul": "07", "Aug": "08",
-               "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"}
         try:
-            out = str(datetime.strptime(date[5:7] +
-                                        day[date[8:11]] +
-                                        date[12:16] +
-                                        date[17:25], "%d%m%Y%H:%M:%S"))
+            out = str(datetime.strptime(date, form))
         except Exception:
-            raise logging.error("Change _w_date function")
+            raise logging.error("Change format of date")
         return out
 
     @staticmethod
@@ -178,11 +188,11 @@ class MyParser:
             output = ""
             n = 0
             for el in self:
-                if n == self.limit or self.date and self.date >\
+                if not el["date"] and self.date:
+                    continue
+                elif n == self.limit or self.date and self.date >\
                         datetime.strptime(el["date"][0:10], "%Y-%m-%d"):
                     break
-                elif not el["date"] and self.date:
-                    continue
                 else:
                     output += json.dumps(el, indent=2)
                     n += 1
@@ -190,11 +200,11 @@ class MyParser:
             output = "Feed: " + self.items_dict["feed"] + "\n"
             n = 0
             for el in self:
-                if n == self.limit or self.date and self.date >\
+                if not el["date"] and self.date:
+                    continue
+                elif n == self.limit or self.date and self.date >\
                         datetime.strptime(el["date"][0:10], "%Y-%m-%d"):
                     break
-                elif not el["date"] and self.date:
-                    continue
                 else:
                     n += 1
                     output += "\n" + str(n) + ")"
