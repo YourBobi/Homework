@@ -80,9 +80,13 @@ class MyParser:
         elif not isinstance(keys, RssKeywords):
             raise self.logger.error("Type error. Keys are not RssKeywords")
 
-        soup = BeautifulSoup(requests.get(url, headers=header).text, 'lxml') \
-            if url else False
-        items = soup.find_all('item') if soup else False
+        try:
+            soup = BeautifulSoup(requests.get(url, headers=header).text, 'lxml')
+        except:
+            items = False
+        else:
+            items = soup.find_all('item')
+
         return {
             "feed": soup.find('title').get_text(strip=True),
             "items":

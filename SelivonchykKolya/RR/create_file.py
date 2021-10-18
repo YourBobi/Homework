@@ -1,4 +1,4 @@
-from my_parser import MyParser
+from .my_parser import MyParser
 from datetime import datetime
 import logging
 # For create HTML
@@ -25,9 +25,7 @@ class CreateFile:
 
     logger = logging.getLogger(__name__)
 
-    def __init__(self, rss: MyParser = None,
-                 html: str = None,
-                 fb2: str = None, *,
+    def __init__(self, rss: MyParser = None, *,
                  date: str = None):
         self.rss = rss
         self.doc = ""
@@ -37,9 +35,9 @@ class CreateFile:
                 if date else None
         except Exception:
             raise self.logger.error("incorrect date")
-        self.create_file(html=html, fb2=fb2)
+        # self.create_file(html=html, fb2=fb2)
 
-    def create_file(self, html, fb2):
+    def create_file(self, html=None, fb2=None):
         """Create code for writing in file file and write on file
 
         :param html: link of file
@@ -48,14 +46,19 @@ class CreateFile:
         """
         if not isinstance(self.rss, MyParser):
             raise TypeError("Not rss file")
-        elif html:
-            self.link = html
-            self.doc = self.create_sample_html()
+        elif html and html[-5:] != ".html":
+            raise TypeError("Incorrect link for html.")
+        elif fb2 and len(fb2) < 5 or fb2 and fb2[-4:] != ".fb2":
+            raise TypeError("Incorrect link for fb2.")
 
+        if html:
+            link = html
+            self.doc = self.create_sample_html()
+            self.write(link)
         elif fb2:
-            self.link = fb2
+            link = fb2
             self.doc = self.create_sample_fb2()
-        self.write()
+            self.write(link)
 
     def create_sample_html(self):
         """Create html code
@@ -65,13 +68,12 @@ class CreateFile:
             or self.html has incorrect format raise TypeError.
             raise TypeError
         In this function
+        :param self.link - link of creating file
+        :param self._style_for_html - styles of html
+        :param self.rss - rss Object with info
+        :param self.news_date - date of news
         :return: str code for html file
         """
-        if self.link[-5:] != ".html":
-            raise TypeError("Incorrect link for html.")
-        elif not isinstance(self.rss, MyParser):
-            raise TypeError("Incorrect type of rss argument.")
-
         date = datetime.strptime(self.rss[0]["date"][0:10], "%Y-%m-%d")
         doc = dominate.document(title='Dominate your HTML')
 
@@ -143,9 +145,6 @@ class CreateFile:
 
         :return: str code for fb2 file
         """
-        if self.link[-4:] != ".fb2":
-            raise TypeError("Incorrect link for fb2.")
-
         book = FictionBook2()
         book.titleInfo.title = "Special news!"
         book.titleInfo.annotation = "Эта книга представляет собой новостную" \
@@ -211,11 +210,12 @@ class CreateFile:
 
         return code
 
-    def write(self):
-        with open(self.link, 'w', encoding="UTF-8") as file:
+    def write(self, link):
+        with open(link, 'w', encoding="UTF-8") as file:
             file.write(self.doc)
 
     def __str__(self):
+        return "lol"
         return self.doc
 
     # Classes for html elements
