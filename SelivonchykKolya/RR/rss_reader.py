@@ -1,7 +1,8 @@
 import logging
 import argparse
-from .my_parser import MyParser, RssKeywords
-from .create_file import CreateFile
+from RR import MyParser, RssKeywords
+from RR import CreateFile
+import RR
 
 URL = "https://vse.sale/news/rss/"
 
@@ -36,58 +37,58 @@ def create_utility():
     parser.add_argument("--to-html", type=str, help="Make .html file")
     parser.add_argument("--to-fb2", type=str, help="Make .fb2 file")
     parser.add_argument("source", nargs="?", type=str, help="RSS URL")
-    return parser
+    return parser.parse_args()
+
+
+def create_keys():
+    keys = RssKeywords()
+    keys.title = "title"
+    keys.date = "pubdate"
+    keys.image_link = "enclosure"
+    keys.description = "description"
+    # keys.format_of_date = "%Y-%m-%dT%H:%M:%SZ"
+    keys.format_of_date = "%a, %d %b %Y %H:%M:%S %z"
+    return keys
 
 
 def parsing_rss(arg):
-    logger = logging.getLogger(__name__)
     """ Parsing rss file
 
     :param arg: users conditions
-    :return: rss object with parsing information
+    :return: rss object with parsing information or ""
     """
-    output = ""
-    try:
-        keys = RssKeywords()
-        keys.title = "title"
-        keys.date = "pubdate"
-        keys.image_link = "enclosure"
-        keys.description = "description"
-        # keys.format_of_date = "%Y-%m-%dT%H:%M:%SZ"
-        keys.format_of_date = "%a, %d %b %Y %H:%M:%S %z"
-        rss = MyParser(arg.source, limit=arg.limit, json_format=arg.json,
-                       date=arg.date, colorize=arg.colorize, keys=keys)
-        output = rss
-    except Exception as e:
-        print(e)
-    finally:
-        logger.info("End process!")
-    return output
+    return MyParser(arg.source, limit=arg.limit, json_format=arg.json,
+                   date=arg.date, colorize=arg.colorize, keys=create_keys())
 
 
 def main():
     logger = logging.getLogger(__name__)
 
-    parser = create_utility()
-    args = parser.parse_args()
+    args = create_utility()
 
     if args.version:
-        print("1.4")
+        print(RR.__version__)
         exit(0)
 
     if args.verbose:
         logging.basicConfig(level=logging.DEBUG,
                             format='%(asctime)s %(name)s '
                                    '%(levelname)s:%(message)s')
+
+    try:
         logger.info("starting the process")
+        rss = parsing_rss(args)
+        rss.write_json()
+        print(rss)
 
-    rss = parsing_rss(args)
-    print(rss)
-
-    if args.to_html:
-        CreateFile(rss=rss, html=args.to_html, date=args.date)
-    if args.to_fb2:
-        CreateFile(rss=rss, fb2=args.to_fb2, date=args.date)
+        if args.to_html:
+            CreateFile(rss=rss, date=args.date).create_file(html=args.to_html)
+        if args.to_fb2:
+            CreateFile(rss=rss, date=args.date).create_file(fb2=args.to_fb2)
+    except Exception as e:
+        print(e)
+    finally:
+        logger.info("End process!")
 
 
 if __name__ == '__main__':
