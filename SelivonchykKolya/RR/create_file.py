@@ -27,6 +27,7 @@ class CreateFile:
 
     def __init__(self, rss: MyParser = None, *,
                  date: str = None):
+        self.logger.info("Start constructor")
         self.rss = rss
         self.doc = ""
         self.link = None
@@ -34,7 +35,8 @@ class CreateFile:
             self.news_date = datetime.strptime(date, "%Y%m%d")\
                 if date else None
         except Exception:
-            raise self.logger.error("incorrect date")
+            raise ValueError("incorrect date")
+        self.logger.info("End constructor")
         # self.create_file(html=html, fb2=fb2)
 
     def create_file(self, html=None, fb2=None):
@@ -44,11 +46,12 @@ class CreateFile:
         :param fb2: link of file
         :return: None
         """
+        self.logger.info("Start of creating file")
         if not isinstance(self.rss, MyParser):
             raise TypeError("Not rss file")
-        elif html and html[-5:] != ".html":
+        elif html and len(html) < 5 or html and html[-5:] != ".html":
             raise TypeError("Incorrect link for html.")
-        elif fb2 and len(fb2) < 5 or fb2 and fb2[-4:] != ".fb2":
+        elif fb2 and len(fb2) < 4 or fb2 and fb2[-4:] != ".fb2":
             raise TypeError("Incorrect link for fb2.")
 
         if html:
@@ -59,6 +62,7 @@ class CreateFile:
             link = fb2
             self.doc = self.create_sample_fb2()
             self.write(link)
+        self.logger.info("End of creating file")
 
     def create_sample_html(self):
         """Create html code
@@ -68,12 +72,12 @@ class CreateFile:
             or self.html has incorrect format raise TypeError.
             raise TypeError
         In this function
-        :param self.link - link of creating file
         :param self._style_for_html - styles of html
         :param self.rss - rss Object with info
         :param self.news_date - date of news
         :return: str code for html file
         """
+        self.logger.info("Start of creating HTML")
         date = datetime.strptime(self.rss[0]["date"][0:10], "%Y-%m-%d")
         doc = dominate.document(title='Dominate your HTML')
 
@@ -110,6 +114,7 @@ class CreateFile:
                                 h2(el["date"], cls="date")
                                 h3(el["description"])
                             div(cls="clear")
+        self.logger.info("End of creating HTML")
         return doc.render()
 
     @staticmethod
@@ -126,7 +131,6 @@ class CreateFile:
                       str(base64.b64encode(image))[2:-1] + "</binary>")
         except Exception:
             ...
-            # print("incorrect certificate of image.")
             # С другими rss работает.
             # Я так понял, что это проблемма этого сайта
 
@@ -145,6 +149,7 @@ class CreateFile:
 
         :return: str code for fb2 file
         """
+        self.logger.info("Start of creating FB2")
         book = FictionBook2()
         book.titleInfo.title = "Special news!"
         book.titleInfo.annotation = "Эта книга представляет собой новостную" \
@@ -208,14 +213,14 @@ class CreateFile:
             code += el
         code += str(book)[-15:]
 
+        self.logger.info("End of creating FB2")
         return code
 
-    def write(self, link):
+    def write(self, link=""):
         with open(link, 'w', encoding="UTF-8") as file:
             file.write(self.doc)
 
     def __str__(self):
-        return "lol"
         return self.doc
 
     # Classes for html elements

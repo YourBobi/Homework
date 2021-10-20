@@ -51,21 +51,21 @@ class MyParser:
                  date: str = None,
                  colorize: bool = False,
                  keys: RssKeywords = None):
-        self.logger.info("Start of creating attribute")
+        self.logger.info("Start constructor")
         self.colorize_format = colorize
         self.json_format = json_format
         self.json_link = "json.json"
         try:
             self.date = datetime.strptime(date, "%Y%m%d") if date else None
         except Exception:
-            raise self.logger.error("incorrect date")
+            raise ValueError("incorrect date")
 
         self.logger.info("Create json file and dict with information!")
         self.items_dict = self.parsing_rss(url, header, keys)
         self.limit = len(self.items_dict["items"]) \
             if limit is None or limit < 0 else limit
-        self.write_json()
-        self.logger.info("End of creating attribute")
+        # self.write_json()
+        self.logger.info("End constructor")
 
     def parsing_rss(self, url, header=None, keys=None):
         """Parses the rss page according to the given url
@@ -74,21 +74,29 @@ class MyParser:
         :param url: url of rss file
         :return: dict with information
         """
+        self.logger.info(f"Start parse {url}")
         if not url and not self.date:
-            raise self.logger.error("error: the following arguments"
-                                    " are required: source")
+            raise ValueError("error: the following arguments "
+                             "are required: source")
         elif not isinstance(keys, RssKeywords):
-            raise self.logger.error("Type error. Keys are not RssKeywords")
+            raise TypeError("Type error. Keys are not RssKeywords")
 
         try:
-            soup = BeautifulSoup(requests.get(url, headers=header).text, 'lxml')
-        except:
+            soup = BeautifulSoup(requests.get(url, headers=header).text,
+                                 'lxml')
+        except requests.exceptions.ConnectionError:
+            raise requests.exceptions.ConnectionError("Connection error")
+        except Exception:
+            if not self.date:
+                raise IOError("Invalid Url")
             items = False
+            feed = ''
         else:
             items = soup.find_all('item')
+            feed = soup.find('title').get_text(strip=True)
 
         return {
-            "feed": soup.find('title').get_text(strip=True),
+            "feed": feed,
             "items":
                 [{"title": el.find(keys.title).get_text(strip=True)
                   if el.find(keys.title) else "",
@@ -115,7 +123,7 @@ class MyParser:
                 data = json.load(file)
                 self.logger.info("End read json file!")
         except Exception:
-            raise self.logger.error("could not read json file. "
+            raise FileNotFoundError("could not read json file. "
                                     "Not file or file is empty.")
 
         return data
@@ -141,7 +149,7 @@ class MyParser:
         try:
             out = str(datetime.strptime(date, form))
         except Exception:
-            raise logging.error("Change format of date")
+            raise ValueError("Change format of date")
         return out
 
     @staticmethod
@@ -189,6 +197,7 @@ class MyParser:
         :return: output str
         """
         if self.json_format:
+            self.logger.info("Convert object in str(json) for __str__")
             output = ""
             n = 0
             for el in self:
@@ -201,6 +210,7 @@ class MyParser:
                     output += json.dumps(el, indent=2)
                     n += 1
         else:
+            self.logger.info("Convert object in str for __str__")
             output = "Feed: " + self.items_dict["feed"] + "\n"
             n = 0
             for el in self:
