@@ -1,0 +1,10 @@
+.idea
+README.md
+CODEOWNERS
+Final_Task.md
+RULES.md
+/SelivonchykKolya/__pycache__
+/SelivonchykKolya/RR/__pycache__
+/SelivonchykKolya/rss_reader.egg-info
+/SelivonchykKolya/.pytest_cache
+/SelivonchykKolya/RR.egg-info
