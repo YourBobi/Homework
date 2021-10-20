@@ -1,7 +1,7 @@
 import logging
 import argparse
-from rss_reader import MyParser, RssKeywords, CreateFile
-import rss_reader
+from RR import MyParser, RssKeywords, CreateFile
+import RR
 
 URL = "https://vse.sale/news/rss/"
 
@@ -66,7 +66,7 @@ def main():
     args = create_utility()
 
     if args.version:
-        print(rss_reader.__version__)
+        print(RR.__version__)
         exit(0)
 
     if args.verbose:

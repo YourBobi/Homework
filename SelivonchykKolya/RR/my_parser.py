@@ -201,7 +201,8 @@ class MyParser:
             output = ""
             n = 0
             for el in self:
-                if not el["date"] and self.date:
+                if not el["date"] and self.date or self.date and self.date \
+                        != datetime.strptime(el["date"][0:10], "%Y-%m-%d"):
                     continue
                 elif n == self.limit or self.date and self.date >\
                         datetime.strptime(el["date"][0:10], "%Y-%m-%d"):
@@ -214,7 +215,8 @@ class MyParser:
             output = "Feed: " + self.items_dict["feed"] + "\n"
             n = 0
             for el in self:
-                if not el["date"] and self.date:
+                if not el["date"] and self.date or self.date and self.date\
+                        != datetime.strptime(el["date"][0:10], "%Y-%m-%d"):
                     continue
                 elif n == self.limit or self.date and self.date >\
                         datetime.strptime(el["date"][0:10], "%Y-%m-%d"):
