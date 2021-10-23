@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from rss_reader import CreateFile, MyParser, RssKeywords, \
+from RR import CreateFile, MyParser, RssKeywords, \
     create_keys, create_utility, parsing_rss, main
 from datetime import datetime
 import pytest

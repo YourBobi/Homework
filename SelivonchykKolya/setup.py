@@ -8,19 +8,19 @@ with open("./README.md") as readmeFile:
     print(readme)
 
 setup(
-    name='rss_reader',
+    name='RR',
     author='Selivonchyk Kolya',
     author_email='still_student@mail.ru',
     version=RR.__version__,
     description="Parsing https://vse.sale/news/rss",
     long_description=readme,
 
-    packages=["rss_reader", "tests"],
+    packages=["RR", "tests"],
     test_suite="tests.run",
-    scripts=["rss_reader/rss_reader.py"],
+    scripts=["RR/rss_reader.py"],
     entry_points={
         'console_scripts':
-            ['rss_reader = rss_reader:main',
+            ['rss_reader = RR:main',
              'pytest-runner = tests:run']
     },
     install_requires=[
