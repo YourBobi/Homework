@@ -2,8 +2,8 @@
 
 import logging
 import argparse
-from RR import MyParser, RssKeywords, CreateFile
-import RR
+from rss_reader import MyParser, RssKeywords, CreateFile
+import rss_reader
 
 URL = "https://vse.sale/news/rss/"
 

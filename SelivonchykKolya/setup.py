@@ -5,26 +5,27 @@ import RR
 
 with open("./README.md") as readmeFile:
     readme = readmeFile.read()
+    print(readme)
 
 setup(
-    name='RR',
+    name='rss_reader',
     author='Selivonchyk Kolya',
-    author_email=['still_student@mail.ru'],
+    author_email='still_student@mail.ru',
     version=RR.__version__,
     description="Parsing https://vse.sale/news/rss",
     long_description=readme,
 
-    packages=["RR", "tests"],
+    packages=["rss_reader", "tests"],
     test_suite="tests.run",
-    scripts=["RR/rss_reader.py"],
+    scripts=["rss_reader/rss_reader.py"],
     entry_points={
         'console_scripts':
-            ['rss_reader = RR:main',
+            ['rss_reader = rss_reader:main',
              'pytest-runner = tests:run']
     },
     install_requires=[
         'pytest>=6.2.5',
-        'bs4>=0.0.1',
+        'bs4>=0.0.0',
         'dominate>=2.6.0',
         'FB2>=0.1.7',
         'urllib3>=1.26.7',
