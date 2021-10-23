@@ -67,7 +67,7 @@ def main():
     args = create_utility()
 
     if args.version:
-        print(RR.__version__)
+        print(rss_reader.__version__)
         exit(0)
 
     if args.verbose:
