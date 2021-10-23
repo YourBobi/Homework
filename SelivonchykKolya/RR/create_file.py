@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from .my_parser import MyParser
 from datetime import datetime
 import logging

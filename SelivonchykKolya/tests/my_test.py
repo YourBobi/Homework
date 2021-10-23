@@ -1,10 +1,11 @@
-from RR import CreateFile, MyParser, RssKeywords,\
+#!/usr/bin/env python3
+
+from RR import CreateFile, MyParser, RssKeywords, \
     create_keys, create_utility, parsing_rss, main
 from datetime import datetime
 import pytest
 import argparse
 import os
-
 
 url = "https://vse.sale/news/rss"
 
@@ -144,12 +145,12 @@ class TestMyParser:
 
     # Test _w_date()
     def test_w_date_return(self, keys):
-        assert isinstance(MyParser._w_date("Thu, 14 Oct 2021 20:51:00 +0300",
-                                           keys.format_of_date), str)
+        assert isinstance(MyParser._w_date("Thu, 14 Oct 2021 20:51:00 +0300"),
+                          str)
 
     def test_w_date_value_raises(self, keys):
         with pytest.raises(ValueError):
-            MyParser._w_date("lalala", keys.format_of_date)
+            MyParser._w_date("lalala")
 
     # Test format_el()
     def test_format_el_return(self, rss):

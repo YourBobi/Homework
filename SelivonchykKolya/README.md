@@ -1,5 +1,4 @@
 #This application is a parser for rss pages.
->this example for [RSS]https://vse.sale/news/rss "RSS"
 
 ***
 ***

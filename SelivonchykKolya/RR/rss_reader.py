@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import logging
 import argparse
 from RR import MyParser, RssKeywords, CreateFile
@@ -43,10 +45,9 @@ def create_keys():
     keys = RssKeywords()
     keys.title = "title"
     keys.date = "pubdate"
-    keys.image_link = "enclosure"
+    keys.image_links = ["enclosure",
+                        "media:content"]
     keys.description = "description"
-    # keys.format_of_date = "%Y-%m-%dT%H:%M:%SZ"
-    keys.format_of_date = "%a, %d %b %Y %H:%M:%S %z"
     return keys
 
 

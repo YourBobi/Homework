@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from setuptools import setup, find_packages
 import RR
 
@@ -17,7 +19,7 @@ setup(
     scripts=["RR/rss_reader.py"],
     entry_points={
         'console_scripts':
-            ['RR = RR:main',
+            ['rss_reader = RR:main',
              'pytest-runner = tests:run']
     },
     install_requires=[
@@ -26,7 +28,8 @@ setup(
         'dominate>=2.6.0',
         'FB2>=0.1.7',
         'urllib3>=1.26.7',
-        'lxml>=4.6.3'
+        'lxml>=4.6.3',
+        'timestring>=1.6.4'
     ],
     python_requires='>=3.9'
 )

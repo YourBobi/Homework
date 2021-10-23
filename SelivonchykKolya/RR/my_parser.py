@@ -1,9 +1,12 @@
+#!/usr/bin/env python3
+
 import json
 import logging
 from datetime import datetime
 # For parsing rss
 from bs4 import BeautifulSoup
 import requests
+import timestring
 # For colorize output
 import os
 
@@ -15,9 +18,8 @@ class RssKeywords:
     title: str = ""
     date: str = ""
     news_link: str = ""
-    image_link: str = ""
+    image_links: list = []
     description: str = ""
-    format_of_date: str = ""
 
 
 class MyParser:
@@ -100,15 +102,15 @@ class MyParser:
             "items":
                 [{"title": el.find(keys.title).get_text(strip=True)
                   if el.find(keys.title) else "",
-                  "date": self._w_date(el.find(keys.date).get_text(strip=True),
-                                       keys.format_of_date)
+                  "date": self._w_date(el.find(keys.date).get_text(strip=True))
                   if el.find(keys.date) else "",
                   "description": el.find(keys.description).get_text(strip=True)
                   if el.find(keys.description) else "",
                   "news link": el.link.next_sibling.get_text(strip=True)
                   if el.link else "",
-                  "image link": el.find(keys.image_link).get("url")
-                  if el.find(keys.image_link) else ""
+                  "image link": el.find(self._w_image(keys.image_links,
+                                                      el)).get("url")
+                  if self._w_image(keys.image_links, el) else ""
                   } for el in items]
         } if items else self.read_json()
 
@@ -139,18 +141,33 @@ class MyParser:
             self.logger.info("End writing in file: {}".format(self.json_link))
 
     @staticmethod
-    def _w_date(date, form):
+    def _w_date(date):
         """Converts date to human readable format
 
         :param date: date from rss
-        :param form: format of date
         :return: str date
         """
         try:
-            out = str(datetime.strptime(date, form))
+            out = str(timestring.Date(date))
         except Exception:
             raise ValueError("Change format of date")
         return out
+
+    @staticmethod
+    def _w_image(forms, item):
+        """
+        :param forms: list of image names
+        :param item: element of items
+        :return: name of image name or none
+        """
+        try:
+            for el in forms:
+                if item.find(el):
+                    return el
+        except Exception:
+            raise ValueError("Change keys.images_links")
+        else:
+            return None
 
     @staticmethod
     def format_el(el):

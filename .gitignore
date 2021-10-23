@@ -8,3 +8,5 @@ RULES.md
 /SelivonchykKolya/rss_reader.egg-info
 /SelivonchykKolya/.pytest_cache
 /SelivonchykKolya/RR.egg-info
+/SelivonchykKolya/tests/__pycache__
+
