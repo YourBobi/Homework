@@ -4,9 +4,11 @@ CODEOWNERS
 Final_Task.md
 RULES.md
 /SelivonchykKolya/__pycache__
-/SelivonchykKolya/rss_reader/__pycache__
+/SelivonchykKolya/RR/__pycache__
 /SelivonchykKolya/rss_reader.egg-info
 /SelivonchykKolya/.pytest_cache
 /SelivonchykKolya/RR.egg-info
 /SelivonchykKolya/tests/__pycache__
-
+/SelivonchykKolya/taskmanager/taskmanager/__pycache__
+/SelivonchykKolya/taskmanager/news/migrations/__pycache__
+/SelivonchykKolya/taskmanager/news/__pycache__/

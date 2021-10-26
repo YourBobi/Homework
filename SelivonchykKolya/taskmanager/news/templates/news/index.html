@@ -19,17 +19,20 @@
         <div class="navbar-collapse collapse" id="navbarsExample01" style="">
             <ul class="navbar-nav me-auto mb-2">
               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
+              </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'about'%}">News</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Account</a>
+                  <a class="nav-link" href="{% url 'user'%}">Account</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="https://www.instagram.com/still_dog/">Programmer</a>
               </li>
           </ul>
             <form>
-                <input class="form-control" type="text" placeholder="Search url rss" aria-label="Search">
+                <input class="form-control" type="text" placeholder="Search url rss" aria-label="Search" id="search">
           </form>
       </div>
     </div>
