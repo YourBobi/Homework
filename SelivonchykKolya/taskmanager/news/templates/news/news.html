@@ -1,8 +1,738 @@
 {% extends 'news/index.html' %}
+            {% block content %}<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dominate your HTML</title>
+    <meta charset="utf8">
+  </head>
+  <body>
+    <style>
+        body {
+            background: beige;
+            margin: 0px;
+            padding: 0px;
+            }
+        .header h1{
+            font-size: 30px;
+            margin-top: 0;
+            padding-top: 10px;
+            padding-left: 30px;
+            color: azure;
+            font-family: 'Permanent Marker', cursive;
 
-{% block content %}
-<div class="container">
-    <h1>news</h1>
-</div>
-
-{% endblock %}
+        }
+        .container h1{
+            font-size: 28px;
+            text-align: left;
+            margin-left: 100px;
+            font-family: 'Karantina', cursive;
+        }
+        .description h3{
+            font-size: 16px;
+            text-align: left;
+            font-weight: 400;
+            }
+        .container{
+            padding-bottom: 50px;
+            background: floralwhite;
+            margin-left: 20px;
+            margin-right: 20px;
+            }
+        .news{
+            width: 100%;
+            padding-bottom: 40px;
+            padding-top: 30px;
+            background: floralwhite;
+            margin-bottom: 20px;
+            }
+        .image_container{
+            width: 150px;
+            float:left;
+            margin-left: 100px;
+            display: flex;
+        }
+        .description{
+            width: 60%;
+            max-height: 100%;
+            margin-left: 100px;
+            float:left;
+        }
+        .header{
+            display: flex;
+            height: 60px;
+            background:black;
+            }
+        .clear{
+            clear:left;
+        }
+        .date{
+            font-size: 16px;
+            color:gainsboro;
+        }
+        img{
+            max-width: 100%;
+            border: 0;
+        }
+        a {
+            display: inline-block;
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: left;
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+            }
+        a:hover{
+            color: #3d9ef9;
+            text-decoration:none;
+        }
+        </style>
+    <div class="header">
+      <h1>Special News</h1>
+    </div>
+    <div class="container" id="data container">
+      <h1>2021.10.29</h1>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/Yi6.JOnBe81VmNVIAkmz3w--~B/aD0yMzYwO3c9MzU0MjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/7019fdea85ace2b1d54dc4dff4f3db33">
+            <img src="https://s.yimg.com/uu/api/res/1.2/Yi6.JOnBe81VmNVIAkmz3w--~B/aD0yMzYwO3c9MzU0MjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/7019fdea85ace2b1d54dc4dff4f3db33">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/asian-spider-takes-hold-georgia-134321868.html">Asian spider takes hold in Georgia, sends humans scurrying</a>
+          <h2 class="date">2021-10-29 13:43:21</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/rIx0HqfrcoN5QS3W4bVejA--~B/aD0yNjgwO3c9MzU3MzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/business_insider_articles_888/9c173798a6617070e8c7e291dc5647b8">
+            <img src="https://s.yimg.com/uu/api/res/1.2/rIx0HqfrcoN5QS3W4bVejA--~B/aD0yNjgwO3c9MzU3MzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/business_insider_articles_888/9c173798a6617070e8c7e291dc5647b8">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/supreme-court-justices-brett-kavanaugh-030349167.html">Supreme Court Justices Brett Kavanaugh and Amy Coney Barrett side with liberal justices, decline to block Maine's vaccine mandate for health workers with religious objections</a>
+          <h2 class="date">2021-10-30 03:03:49</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/JE2Y9CgmoMy8J0soi3NUxg--~B/aD04NTk7dz0xMTQ2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insider_articles_922/c88545b9c2e50daecd046521de46b506">
+            <img src="https://s.yimg.com/uu/api/res/1.2/JE2Y9CgmoMy8J0soi3NUxg--~B/aD04NTk7dz0xMTQ2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insider_articles_922/c88545b9c2e50daecd046521de46b506">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/tyler-perry-says-suggested-survivor-011157169.html">Tyler Perry says he suggested 'Survivor' make swimsuits 'look worn and tattered' but denies telling Jeff Probst to get rid of them altogether</a>
+          <h2 class="date">2021-10-30 01:11:57</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/gjAl7W2QrDqR20KPzPsljQ--~B/aD0zMDYyO3c9NDYyMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/ebcc2664a465e5193e629570f2a54116">
+            <img src="https://s.yimg.com/uu/api/res/1.2/gjAl7W2QrDqR20KPzPsljQ--~B/aD0zMDYyO3c9NDYyMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/ebcc2664a465e5193e629570f2a54116">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/indian-movie-star-puneeth-rajkumar-143905113.html">Indian movie star Puneeth Rajkumar dies after heart attack</a>
+          <h2 class="date">2021-10-29 14:39:05</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/6xWgVxZQj6tq0pT444VsQg--~B/aD02MDA7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/the_huffington_post_584/485a8c0e6735d82fc21feeb22e3fb593">
+            <img src="https://s.yimg.com/uu/api/res/1.2/6xWgVxZQj6tq0pT444VsQg--~B/aD02MDA7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/the_huffington_post_584/485a8c0e6735d82fc21feeb22e3fb593">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/gop-rep-jim-jordans-disfunction-063508393.html">GOP Rep. Jim Jordan's 'Disfunction' Whine Gets Flipped Back On Him</a>
+          <h2 class="date">2021-10-30 06:35:08</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="container" id="data container">
+      <h1>2021.10.28</h1>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/RNFtvU.RAnTM2ZJaqS0jMg--~B/aD0yNDA3O3c9MzMwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/d50a0fd05ef5205d945478313a752ca3">
+            <img src="https://s.yimg.com/uu/api/res/1.2/RNFtvU.RAnTM2ZJaqS0jMg--~B/aD0yNDA3O3c9MzMwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/d50a0fd05ef5205d945478313a752ca3">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/latest-payout-arizona-sheriff-cost-041238835.html">Arpaio legal tab hits $100M as taxpayers foot his last bills</a>
+          <h2 class="date">2021-10-29 04:12:38</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/RiUthlX_hftBrvNrU.E_nw--~B/aD0xMTgxO3c9MTg2NjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/the_telegraph_258/625b0a50cd3577df462a3d253411fc8d">
+            <img src="https://s.yimg.com/uu/api/res/1.2/RiUthlX_hftBrvNrU.E_nw--~B/aD0xMTgxO3c9MTg2NjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/the_telegraph_258/625b0a50cd3577df462a3d253411fc8d">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/rise-fall-yakuza-japans-ruthless-104154686.html">The rise and fall of the yakuza, Japan's ruthless mafia gangs</a>
+          <h2 class="date">2021-10-29 10:41:54</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/fJ9Pc.rrjR3_Au7r3HSOig--~B/aD0zNDEyO3c9NDU1MDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/business_insider_articles_888/1d9142b5ea160c9f3d661fc481a78a2f">
+            <img src="https://s.yimg.com/uu/api/res/1.2/fJ9Pc.rrjR3_Au7r3HSOig--~B/aD0zNDEyO3c9NDU1MDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/business_insider_articles_888/1d9142b5ea160c9f3d661fc481a78a2f">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/fully-vaccinated-people-pass-delta-123654331.html">Fully vaccinated people can pass on the Delta variant at home, including to other vaccinated people, a study finds - but unvaccinated people are still at most risk</a>
+          <h2 class="date">2021-10-29 12:36:54</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/sJ0Pw3UOChMcxbr263YZuQ--~B/aD0yNTQwO3c9MzgwOTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/2c3303c2aa1fa5b0368890409ba708f2">
+            <img src="https://s.yimg.com/uu/api/res/1.2/sJ0Pw3UOChMcxbr263YZuQ--~B/aD0yNTQwO3c9MzgwOTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/2c3303c2aa1fa5b0368890409ba708f2">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/3-guilty-killing-girl-12-200156135.html">3 guilty in killing of girl, 12, that shook New Orleans</a>
+          <h2 class="date">2021-10-28 20:01:56</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/gXCgHb8bDTC24wvVddyZsg--~B/aD0xNTAwO3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/8ebb508356470e555e79f90450a8a0be">
+            <img src="https://s.yimg.com/uu/api/res/1.2/gXCgHb8bDTC24wvVddyZsg--~B/aD0xNTAwO3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/8ebb508356470e555e79f90450a8a0be">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/greys-anatomy-star-isaiah-washington-165941822.html">'Grey's Anatomy' star Isaiah Washington said Ellen Pompeo was secretly paid $5 million 'to not tell the world how toxic and nasty Patrick Dempsey really was'</a>
+          <h2 class="date">2021-10-29 16:59:41</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/_RE55GVTIAE2wMVoff05Fg--~B/aD02MDA7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/the_huffington_post_584/27dbf93f5d7b14fdf26cfd987ea82794">
+            <img src="https://s.yimg.com/uu/api/res/1.2/_RE55GVTIAE2wMVoff05Fg--~B/aD02MDA7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/the_huffington_post_584/27dbf93f5d7b14fdf26cfd987ea82794">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/marjorie-taylor-greene-called-liz-065728278.html">Marjorie Taylor Greene Called Liz Cheney A ‘Karen’ And You Know What Happened Next</a>
+          <h2 class="date">2021-10-29 06:57:28</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/CbSzmzCV4wZ8jqdvIn4dgw--~B/aD0yMDAwO3c9MzAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/e810bcf796cd0f960fbb107ff69f1f1a">
+            <img src="https://s.yimg.com/uu/api/res/1.2/CbSzmzCV4wZ8jqdvIn4dgw--~B/aD0yMDAwO3c9MzAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/e810bcf796cd0f960fbb107ff69f1f1a">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/rival-violent-past-bar-herschel-212153739.html">Rival: Violent past should bar Herschel Walker from Senate</a>
+          <h2 class="date">2021-10-28 21:21:53</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/8zwqby7wxL1vz9b6f5a0iQ--~B/aD0xMDAwO3c9MTMzMzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/business_insider_articles_888/2e7be5356b7ed72e196f93d362c30ba9">
+            <img src="https://s.yimg.com/uu/api/res/1.2/8zwqby7wxL1vz9b6f5a0iQ--~B/aD0xMDAwO3c9MTMzMzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/business_insider_articles_888/2e7be5356b7ed72e196f93d362c30ba9">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/donald-trumps-former-chief-staff-084309534.html">Donald Trump's former chief of staff is ready to bet all his money on the former president running again in 2024, he tells a podcast</a>
+          <h2 class="date">2021-10-30 08:43:09</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/VMzSpHitTtyei6hM.bm3lQ--~B/aD00MjU7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/nextshark_articles_509/28987bd4df18c5b1370ced5165494036">
+            <img src="https://s.yimg.com/uu/api/res/1.2/VMzSpHitTtyei6hM.bm3lQ--~B/aD00MjU7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/nextshark_articles_509/28987bd4df18c5b1370ced5165494036">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/came-south-korea-irvine-vice-175208637.html">'You came from South Korea': Irvine vice-mayor confronted with xenophobic questioning at council meeting</a>
+          <h2 class="date">2021-10-29 17:52:08</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/RyLvRV1QlMlGriZb.r58rg--~B/aD0yNzU0O3c9NTA5NDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/648d52a15a9bfad027558229f5da6a74">
+            <img src="https://s.yimg.com/uu/api/res/1.2/RyLvRV1QlMlGriZb.r58rg--~B/aD0yNzU0O3c9NTA5NDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/648d52a15a9bfad027558229f5da6a74">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/california-judge-rejects-water-deal-212403032.html">California judge rejects water deal for major farm supplier</a>
+          <h2 class="date">2021-10-28 21:24:03</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/hd/cp-video-transcode/prod/2021-10/29/617c8193709d502ad52375fa/617c8193709d502ad52375fb_o_U_v2.jpg">
+            <img src="https://s.yimg.com/hd/cp-video-transcode/prod/2021-10/29/617c8193709d502ad52375fa/617c8193709d502ad52375fb_o_U_v2.jpg">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/lava-flows-summit-hawaii-volcano-231722893.html">Lava flows from summit in Hawaii volcano eruption</a>
+          <h2 class="date">2021-10-29 23:17:22</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/vDfKT_dIlA04.FI9RqSB0Q--~B/aD0yNjYyO3c9MzU0OTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/32c5d8d1344d300db228e79e07c91927">
+            <img src="https://s.yimg.com/uu/api/res/1.2/vDfKT_dIlA04.FI9RqSB0Q--~B/aD0yNjYyO3c9MzU0OTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/32c5d8d1344d300db228e79e07c91927">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/gay-student-talking-bullying-massachusetts-202301304.html">A gay student talking about bullying at a Massachusetts school board meeting was shouted over by a woman yelling 'This is the indoctrination'</a>
+          <h2 class="date">2021-10-29 20:23:01</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/ZFp3tnr1OlHO2L69w5jL7Q--~B/aD0zNDQ1O3c9NTE2NzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/d04cb106b2180b8da2253e8faf8628bb">
+            <img src="https://s.yimg.com/uu/api/res/1.2/ZFp3tnr1OlHO2L69w5jL7Q--~B/aD0zNDQ1O3c9NTE2NzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/d04cb106b2180b8da2253e8faf8628bb">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/lets-brandon-became-code-insulting-050915714.html">How 'Let's Go Brandon' became code for insulting Joe Biden</a>
+          <h2 class="date">2021-10-30 05:09:15</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/.r9YrUcI.NY7NjxgpqQb9w--~B/aD0yNDA3O3c9MzYwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/virginian_pilot_tribune_local_770/79521e9662fcb8ba31aedefcce068a73">
+            <img src="https://s.yimg.com/uu/api/res/1.2/.r9YrUcI.NY7NjxgpqQb9w--~B/aD0yNDA3O3c9MzYwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/virginian_pilot_tribune_local_770/79521e9662fcb8ba31aedefcce068a73">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/spite-fence-angers-neighbors-west-184100333.html">‘Spite fence’ angers neighbors of West Neck golf community in Virginia Beach</a>
+          <h2 class="date">2021-10-28 18:41:00</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/5IArkIebfGM.hYpnnwnYjQ--~B/aD0yNDc2O3c9MzMwMTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/business_insider_articles_888/9993537c156e6d3a502dcfa1392be30b">
+            <img src="https://s.yimg.com/uu/api/res/1.2/5IArkIebfGM.hYpnnwnYjQ--~B/aD0yNDc2O3c9MzMwMTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/business_insider_articles_888/9993537c156e6d3a502dcfa1392be30b">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/mummy-discovered-vast-burial-ground-093046886.html">A mummy discovered in a vast burial ground of Egypt's pharaohs could change how ancient history is understood</a>
+          <h2 class="date">2021-10-30 09:30:46</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/kOM20yB9M.rIVSZaKo1dRw--~B/aD0xNzIzO3c9MjQ1MDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/22db5bfac3c6edb2504c0591eb498a70">
+            <img src="https://s.yimg.com/uu/api/res/1.2/kOM20yB9M.rIVSZaKo1dRw--~B/aD0xNzIzO3c9MjQ1MDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/22db5bfac3c6edb2504c0591eb498a70">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/study-details-environmental-effects-early-183152605.html">Study details environmental impacts of early Chaco residents</a>
+          <h2 class="date">2021-10-29 18:31:52</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/4WiCAeFpS_nSJ2SnTzgvcQ--~B/aD05MjY7dz0xMjM1O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/nbc_news_122/d297b3c4b84ce74bbd8bf54f9632396b">
+            <img src="https://s.yimg.com/uu/api/res/1.2/4WiCAeFpS_nSJ2SnTzgvcQ--~B/aD05MjY7dz0xMjM1O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/nbc_news_122/d297b3c4b84ce74bbd8bf54f9632396b">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/2-men-arrested-suspicion-cutting-163405508.html">2 men arrested on suspicion of cutting wood from bridge to sell on black market, officials say</a>
+          <h2 class="date">2021-10-29 16:34:05</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/Y20rqqZ34xvopgnWWtPktA--~B/aD03MjA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/fox_news_text_979/c67118f62f8a84e08b6223305a4271fd">
+            <img src="https://s.yimg.com/uu/api/res/1.2/Y20rqqZ34xvopgnWWtPktA--~B/aD03MjA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/fox_news_text_979/c67118f62f8a84e08b6223305a4271fd">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/alec-baldwin-resurfaces-vermont-apos-172231845.html">Alec Baldwin resurfaces in Vermont after 'Rust' shooting, stuns local business owner: 'My jaw dropped'</a>
+          <h2 class="date">2021-10-28 17:22:31</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/CJF7JotDG13gDoBEp6ct_g--~B/aD0xNTAyO3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/13b5883b45e27ab386c863f98856befb">
+            <img src="https://s.yimg.com/uu/api/res/1.2/CJF7JotDG13gDoBEp6ct_g--~B/aD0xNTAyO3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/13b5883b45e27ab386c863f98856befb">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/oklahoma-asks-us-supreme-court-172735612.html">Oklahoma executes inmate who dies vomiting and convulsing</a>
+          <h2 class="date">2021-10-28 17:27:35</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/hd/cp-video-transcode/prod/2021-10/30/617c986b7cfab42a9c30dace/617c986b7cfab42a9c30dacf_o_U_v2.jpg">
+            <img src="https://s.yimg.com/hd/cp-video-transcode/prod/2021-10/30/617c986b7cfab42a9c30dace/617c986b7cfab42a9c30dacf_o_U_v2.jpg">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/heres-northeast-could-first-snow-002700611.html">Here's how the Northeast could get its first snow of the season next week</a>
+          <h2 class="date">2021-10-30 00:27:00</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/7_XGuy5BCkMZCFEPoJkXjg--~B/aD0xNTExO3c9MjAxNjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/8e968fab6b32d670f471101d963dd82a">
+            <img src="https://s.yimg.com/uu/api/res/1.2/7_XGuy5BCkMZCFEPoJkXjg--~B/aD0xNTExO3c9MjAxNjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/8e968fab6b32d670f471101d963dd82a">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/reporter-says-bruce-willis-once-214704253.html">A reporter says Bruce Willis once made her wait 9 days for a 'nightmare' interview and then didn't tip the waiter at the restaurant he forced shut</a>
+          <h2 class="date">2021-10-29 21:47:04</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/ZhHkaiIdk.E6uMgvVSIuQA--~B/aD00MjY4O3c9NjQwMjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/a287108adbe41c3f04c6f9ec8dd05ebc">
+            <img src="https://s.yimg.com/uu/api/res/1.2/ZhHkaiIdk.E6uMgvVSIuQA--~B/aD00MjY4O3c9NjQwMjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/a287108adbe41c3f04c6f9ec8dd05ebc">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/traditionalists-flood-rome-popes-latin-190616621.html">Traditionalists flood Rome after pope's Latin Mass crackdown</a>
+          <h2 class="date">2021-10-29 19:06:16</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/2Un49JMLSvtXT6WxgrB1oQ--~B/aD00MjI7dz03NTA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/the_advocate_articles_932/c6c1f989fa8b213db3988cb3e6de47eb">
+            <img src="https://s.yimg.com/uu/api/res/1.2/2Un49JMLSvtXT6WxgrB1oQ--~B/aD00MjI7dz03NTA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/the_advocate_articles_932/c6c1f989fa8b213db3988cb3e6de47eb">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/trans-woman-jessi-hart-found-192436279.html">Trans Woman Jessi Hart Found Dead in Oregon</a>
+          <h2 class="date">2021-10-29 19:24:36</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/lhk_bE3Swtk7mql4juqy_A--~B/aD0xMTc2O3c9MTk1ODthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/the_guardian_765/5ab28d44b1737eecd6b2e9dc0438ec0a">
+            <img src="https://s.yimg.com/uu/api/res/1.2/lhk_bE3Swtk7mql4juqy_A--~B/aD0xMTc2O3c9MTk1ODthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/the_guardian_765/5ab28d44b1737eecd6b2e9dc0438ec0a">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/texas-shocked-killing-muslim-motorist-090026397.html">Texas shocked by killing of motorist who pulled into man’s driveway</a>
+          <h2 class="date">2021-10-29 09:00:26</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/Y9_7A.qzDYYZrulM2b4tfQ--~B/aD00Nzc7dz02ODY7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/ap.org/d1f81a78c5312de7df982476280227fe">
+            <img src="https://s.yimg.com/uu/api/res/1.2/Y9_7A.qzDYYZrulM2b4tfQ--~B/aD00Nzc7dz02ODY7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/ap.org/d1f81a78c5312de7df982476280227fe">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/prisoner-gives-guantanamo-court-first-012631829.html">Prisoner gives Guantanamo court first account of CIA abuse</a>
+          <h2 class="date">2021-10-29 01:26:31</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/.RLyeeMtt_wfeNWWIjQGbA--~B/aD01OTk7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/the_huffington_post_584/b2d428975d0c1a91997641ab4d99b055">
+            <img src="https://s.yimg.com/uu/api/res/1.2/.RLyeeMtt_wfeNWWIjQGbA--~B/aD01OTk7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/the_huffington_post_584/b2d428975d0c1a91997641ab4d99b055">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/sean-spicer-rips-joe-biden-081243157.html">Sean Spicer Rips Joe Biden For Something Donald Trump Did Many, Many Times</a>
+          <h2 class="date">2021-10-29 08:12:43</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/MVnfydlzxS61W0Jf8emgnA--~B/aD0xNTcxO3c9MjA5NTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/870afe6da45efe93270db2dc8dcce695">
+            <img src="https://s.yimg.com/uu/api/res/1.2/MVnfydlzxS61W0Jf8emgnA--~B/aD0xNTcxO3c9MjA5NTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/870afe6da45efe93270db2dc8dcce695">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/survivor-winner-slams-show-forcing-171030876.html">'Survivor' winner slams the show for forcing contestants to continue competing in their underwear after 41 seasons: 'Give them some dignity'</a>
+          <h2 class="date">2021-10-29 18:29:25</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/Q2qFu.9vqWRXPBYhDlKpIw--~B/aD0yNDQ4O3c9MzY3MjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/807f624bd0cb3a5ad84df720579a15f2">
+            <img src="https://s.yimg.com/uu/api/res/1.2/Q2qFu.9vqWRXPBYhDlKpIw--~B/aD0yNDQ4O3c9MzY3MjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/807f624bd0cb3a5ad84df720579a15f2">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/not-real-news-look-didnt-182708423.html">NOT REAL NEWS: A look at what didn't happen this week</a>
+          <h2 class="date">2021-10-29 18:27:08</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/dP6ffqMO8mBDYJ2CdFb3BA--~B/aD0yMzQ3O3c9MzEyOTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/business_insider_articles_888/3e272a62e418226d0959bac8232f5e84">
+            <img src="https://s.yimg.com/uu/api/res/1.2/dP6ffqMO8mBDYJ2CdFb3BA--~B/aD0yMzQ3O3c9MzEyOTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/business_insider_articles_888/3e272a62e418226d0959bac8232f5e84">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/lincoln-project-sent-group-posing-051524951.html">The Lincoln Project sent a group posing as white supremacists with tiki torches to a GOP campaign event in Virginia ahead of the state's gubernatorial election</a>
+          <h2 class="date">2021-10-30 05:15:24</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/uQ.6qfpJyycFvTIoa9selQ--~B/aD02NTg7dz0xMTcwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/thedailybeast.com/7a758f4b303ccd46739a582f6e4c7476">
+            <img src="https://s.yimg.com/uu/api/res/1.2/uQ.6qfpJyycFvTIoa9selQ--~B/aD02NTg7dz0xMTcwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/thedailybeast.com/7a758f4b303ccd46739a582f6e4c7476">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/won-big-casino-murdered-stranger-171230890.html">​​He Won Big at a Casino—and Was Murdered by a Stranger Who Trailed Him Home, Cops Say</a>
+          <h2 class="date">2021-10-29 17:12:30</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/dgnAhsQ0Lqfea5DeC4Me1Q--~B/aD0xNDM1O3c9MjE1NDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/f2e4053533f9694c419095f4f2022c4e">
+            <img src="https://s.yimg.com/uu/api/res/1.2/dgnAhsQ0Lqfea5DeC4Me1Q--~B/aD0xNDM1O3c9MjE1NDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/f2e4053533f9694c419095f4f2022c4e">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/us-hits-iran-sanctions-ahead-161841879.html">US hits Iran with sanctions ahead of key nuke talks meeting</a>
+          <h2 class="date">2021-10-29 16:18:41</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/wvM3G.8aOW1MD_Nn4Y8R6Q--~B/aD0zMDU7dz00MjE7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/cbs_news_897/6c94217b2857e5a46b2924655f16cb06">
+            <img src="https://s.yimg.com/uu/api/res/1.2/wvM3G.8aOW1MD_Nn4Y8R6Q--~B/aD0zMDU7dz00MjE7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/cbs_news_897/6c94217b2857e5a46b2924655f16cb06">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/mother-3-abandoned-boys-dead-111440046.html">Mother of 3 abandoned boys and dead brother speaks out</a>
+          <h2 class="date">2021-10-29 11:14:00</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/vInf33ckBYH90vyh46lUtg--~B/aD03MjA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/axios_articles_623/bffa9e05594d815310f9590575bc3732">
+            <img src="https://s.yimg.com/uu/api/res/1.2/vInf33ckBYH90vyh46lUtg--~B/aD03MjA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/axios_articles_623/bffa9e05594d815310f9590575bc3732">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/wsb-tv-anchor-jovita-moore-145558894.html">WSB-TV anchor Jovita Moore dies after battle with brain cancer</a>
+          <h2 class="date">2021-10-29 14:55:58</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/zGq9XQvW09Izs34XSGvHig--~B/aD0zNjIzO3c9NTQzNTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/8e46ef758827de45a3bfc23f564e2281">
+            <img src="https://s.yimg.com/uu/api/res/1.2/zGq9XQvW09Izs34XSGvHig--~B/aD0zNjIzO3c9NTQzNTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/8e46ef758827de45a3bfc23f564e2281">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/kenya-president-kenyatta-africa-crossroads-003413413.html">Kenya’s president Kenyatta: Africa is at a crossroads</a>
+          <h2 class="date">2021-10-29 00:34:13</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/SPl.tQ0zgZTbSt9XLpB98Q--~B/aD01MzQ7dz03MTI7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insider_articles_922/9b14fb3b2ca45437ee1abdd389139af9">
+            <img src="https://s.yimg.com/uu/api/res/1.2/SPl.tQ0zgZTbSt9XLpB98Q--~B/aD01MzQ7dz03MTI7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insider_articles_922/9b14fb3b2ca45437ee1abdd389139af9">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/instagram-model-posed-her-dads-152434948.html">Instagram model who posed by her dad's casket says there's 'nothing wrong' with what she posted after backlash</a>
+          <h2 class="date">2021-10-29 15:24:34</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/hd/cp-video-transcode/prod/2021-10/29/617bcdec7cfab42a9c30d73b/617bcdec7cfab42a9c30d73c_o_U_v2.jpg">
+            <img src="https://s.yimg.com/hd/cp-video-transcode/prod/2021-10/29/617bcdec7cfab42a9c30d73b/617bcdec7cfab42a9c30d73c_o_U_v2.jpg">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/flooded-california-corn-maze-forced-102400159.html">Flooded California corn maze forced to close Halloween week</a>
+          <h2 class="date">2021-10-29 10:24:00</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/7fPbK27x1t5lr8ATTkqIgQ--~B/aD0yNTQ5O3c9MzgyMzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/554cccfa53561a3580ec63ea2f7b0523">
+            <img src="https://s.yimg.com/uu/api/res/1.2/7fPbK27x1t5lr8ATTkqIgQ--~B/aD0yNTQ5O3c9MzgyMzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/554cccfa53561a3580ec63ea2f7b0523">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/melo-shoots-lakers-3rd-win-050023700.html">Melo shoots Lakers to 3rd win in 4, 113-101 over Cavaliers</a>
+          <h2 class="date">2021-10-30 05:00:23</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/RNI30EHUxVSWvvwZCgOa3w--~B/aD0yNTM4O3c9MzM4NDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/business_insider_articles_888/d48e774f30d0a7e970cf2bc8f141c8ff">
+            <img src="https://s.yimg.com/uu/api/res/1.2/RNI30EHUxVSWvvwZCgOa3w--~B/aD0yNTM4O3c9MzM4NDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/business_insider_articles_888/d48e774f30d0a7e970cf2bc8f141c8ff">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/liars-stupid-arnold-schwarzenegger-attacks-095719909.html">'They are liars or they are stupid': Arnold Schwarzenegger attacks world leaders over climate policies, arguing that cutting emissions can also boost the economy</a>
+          <h2 class="date">2021-10-29 09:57:19</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/5iqR1kRc1iPSVqfmTL95XA--~B/aD0xMDIwO3c9MTUyODthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/nbc_news_122/b28373812ffe262a3064398f2302c32f">
+            <img src="https://s.yimg.com/uu/api/res/1.2/5iqR1kRc1iPSVqfmTL95XA--~B/aD0xMDIwO3c9MTUyODthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/nbc_news_122/b28373812ffe262a3064398f2302c32f">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/police-brian-laundrie-likely-already-170421572.html">Police say Brian Laundrie was likely already dead when they confused him for his mother</a>
+          <h2 class="date">2021-10-28 17:04:21</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/kD4H5Wx9KEV5mmofPlGT3g--~B/aD0zNDU2O3c9NTE4NDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/64a640f60aa24b867fb412384f6d1b53">
+            <img src="https://s.yimg.com/uu/api/res/1.2/kD4H5Wx9KEV5mmofPlGT3g--~B/aD0zNDU2O3c9NTE4NDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/64a640f60aa24b867fb412384f6d1b53">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/saudi-arabia-orders-lebanese-ambassador-175936316.html">Saudi Arabia, Bahrain expel Lebanese ambassadors</a>
+          <h2 class="date">2021-10-29 17:59:36</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/yz7RAxLUd.FbLZHoaXi3RA--~B/aD00MjU7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/nextshark_articles_509/1e10d0c40fd11d8fa167b4dad35af911">
+            <img src="https://s.yimg.com/uu/api/res/1.2/yz7RAxLUd.FbLZHoaXi3RA--~B/aD00MjU7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/nextshark_articles_509/1e10d0c40fd11d8fa167b4dad35af911">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/meet-104-old-chen-ping-160615001.html">Meet 104-year-old Chen Ping Ching, the last living member of WWII's legendary 'Flying Tigers' squadron</a>
+          <h2 class="date">2021-10-29 16:06:15</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="">
+            <img src="">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/texas-man-dead-attempts-cut-221700552.html">Texas man dead after attempts to cut his grass led to fire and a SWAT call</a>
+          <h2 class="date">2021-10-28 22:17:00</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/Z.oxtqxJTiD37dOzYL4T.Q--~B/aD0xOTY5O3c9MzAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/e716a70aae59cde7b798dfacc4b9606f">
+            <img src="https://s.yimg.com/uu/api/res/1.2/Z.oxtqxJTiD37dOzYL4T.Q--~B/aD0xOTY5O3c9MzAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ap.org/e716a70aae59cde7b798dfacc4b9606f">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/solar-wing-jammed-nasa-spacecraft-144758841.html">Solar wing jammed on NASA spacecraft chasing asteroids</a>
+          <h2 class="date">2021-10-28 14:47:58</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="news">
+        <div class="image_container">
+          <a href="https://s.yimg.com/uu/api/res/1.2/JxOGlfOFFynvqrNrxnXKVA--~B/aD0yNjU0O3c9MzU0NTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/225a2d6c9ed7f909aac45adde83ff1b3">
+            <img src="https://s.yimg.com/uu/api/res/1.2/JxOGlfOFFynvqrNrxnXKVA--~B/aD0yNjU0O3c9MzU0NTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insider_articles_922/225a2d6c9ed7f909aac45adde83ff1b3">
+          </a>
+        </div>
+        <div class="description">
+          <a href="https://news.yahoo.com/flight-attendant-suffered-broken-bones-032011174.html">A flight attendant suffered broken bones in her face because a passenger punched her after she bumped into him, union says</a>
+          <h2 class="date">2021-10-29 03:20:11</h2>
+          <h3></h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </body>
+</html>{% endblock %}
