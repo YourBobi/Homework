@@ -114,6 +114,15 @@ class MyParser:
                   } for el in items]
         } if items else self.read_json()
 
+    def sort(self):
+        length = len(self.items_dict['items'])
+        for i in range(length - 1):
+            for j in range(i+1, length):
+                if datetime.strptime(self[i]['date'][0:10], "%Y-%m-%d") < \
+                        datetime.strptime(self[j]['date'][0:10], "%Y-%m-%d"):
+                    self.items_dict['items'][i], self.items_dict['items'][j] =\
+                        self.items_dict['items'][j], self.items_dict['items'][i]
+
     def read_json(self):
         """Read json file
 

@@ -99,23 +99,23 @@ class CreateFile:
                 if self.news_date and self.news_date > \
                         datetime.strptime(el["date"][0:10], "%Y-%m-%d"):
                     break
-                elif date > datetime.strptime(el["date"][0:10], "%Y-%m-%d"):
+                elif date != datetime.strptime(el["date"][0:10], "%Y-%m-%d"):
                     container
 
                     date = datetime.strptime(el["date"][0:10], "%Y-%m-%d")
                     container = div(h1(datetime.strftime(date, "%Y.%m.%d")),
                                     id="data container", cls="container")
-                else:
-                    with container:
-                        with div(cls="news"):
-                            with div(cls="image_container"):
-                                a(img(src=el["image link"]),
-                                  href=el["image link"])
-                            with div(cls="description"):
-                                a(el["title"], href=el["news link"])
-                                h2(el["date"], cls="date")
-                                h3(el["description"])
-                            div(cls="clear")
+
+                with container:
+                    with div(cls="news"):
+                        with div(cls="image_container"):
+                            a(img(src=el["image link"]),
+                              href=el["image link"])
+                        with div(cls="description"):
+                            a(el["title"], href=el["news link"])
+                            h2(el["date"], cls="date")
+                            h3(el["description"])
+                        div(cls="clear")
         self.logger.info("End of creating HTML")
         return doc.render()
 
